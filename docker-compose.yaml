@@ -10,7 +10,7 @@ services:
     networks:
       - microservicesnet
     environment:
-      EUREKA_HOST_NAME: 172.16.1.4
+      EUREKA_HOST_NAME: 54.159.56.75
     depends_on:
       - eurekasvc
   paymentsvc:
@@ -22,7 +22,7 @@ services:
     networks:
       - microservicesnet
     environment:
-      EUREKA_HOST_NAME: 172.16.1.4
+      EUREKA_HOST_NAME: 54.159.56.75
     depends_on:
       - eurekasvc
   notificationsvc:
