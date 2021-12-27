@@ -17,7 +17,7 @@ public class Consumer {
 
         //Update the IP adress of Kafka server here//
 
-        //properties.put("bootstrap.servers", "ec2-18-206-108.compute-1.amazonaws.com:9092");
+        props.put("bootstrap.servers", "ec2-3-89-228-90.compute-1.amazonaws.com:9092");
 
         props.setProperty("group.id", "sweethome");
         props.setProperty("enable.auto.commit", "true");
