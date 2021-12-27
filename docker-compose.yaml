@@ -1,0 +1,46 @@
+version: '3.3'
+
+services:
+  bookingsvc:
+    build: bookingservice
+    container_name: bookingsvc
+    image: hba/bookingsvc:1.0.0
+    ports:
+      - "8080:8080"
+    networks:
+      - microservicesnet
+    environment:
+      EUREKA_HOST_NAME: 172.16.1.4
+    depends_on:
+      - eurekasvc
+  paymentsvc:
+    build: paymentservice
+    container_name: paymentsvc
+    image: hba/paymentsvc:1.0.0
+    ports:
+      - "8083:8083"
+    networks:
+      - microservicesnet
+    environment:
+      EUREKA_HOST_NAME: 172.16.1.4
+    depends_on:
+      - eurekasvc
+  notificationsvc:
+    build: notificationservice
+    container_name: notificationsvc
+    image: hba/notificationsvc:1.0.0
+    ports:
+      - "9091:9091"
+    networks:
+      - microservicesnet
+  eurekasvc:
+    build: eurekaserver
+    container_name: eurekasvc
+    image: hba/eurekasvc:1.0.0
+    ports:
+      - "8761:8761"
+    networks:
+      - microservicesnet
+networks:
+  microservicesnet:
+    driver: bridge
